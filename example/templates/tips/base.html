@@ -57,7 +57,7 @@
   {% endfor %}
   {% endif %}
 
-  <div class="tip_of_day_container"/>
+  <div id="tip_of_day_container"/>
 
 </div>
 
@@ -76,8 +76,14 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
 <!-- Your stuff: Third-party javascript libraries go here -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.0.1/react.min.js" type="text/javascript"></script>
+<!-- @TODO: replace by min version -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.0.1/react.min.js" type="text/javascript"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.0.1/react.js" type="text/javascript"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.0.1/react-dom.min.js" type="text/javascript"></script>
+<!-- Global constants -->
+<script type="text/javascript">
+  TIPS_URL_ROOT = "{% url 'tips:tips_root_url' %}";
+</script>
 <script src="{% static "tips/js/tips.js" %}"></script>
 {% endblock javascript %}
 </body>

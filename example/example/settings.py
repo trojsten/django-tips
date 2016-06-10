@@ -36,11 +36,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'debug_toolbar',
+
     'rest_framework',
     'tips',
-
-    # if your app has other dependencies that need to be added to the site
-    # they should be added here
 ]
 
 MIDDLEWARE_CLASSES = [
