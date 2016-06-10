@@ -22,32 +22,32 @@ var TipOfDay = function (_React$Component) {
     value: function render() {
       return React.createElement(
         "div",
-        { className: "tip_of_day" },
+        { className: "panel panel-info" },
         React.createElement(
-          "button",
-          { type: "button", "class": "close", "aria-label": "Close" },
+          "div",
+          { className: "panel-heading" },
           React.createElement(
-            "span",
-            { "aria-hidden": "true" },
-            "×"
-          )
-        ),
-        React.createElement(
-          "h1",
-          { className: "tip_of_day_title" },
+            "button",
+            { type: "button", className: "close", "aria-label": "Close", onClick: this.props.onClose },
+            React.createElement(
+              "span",
+              { "aria-hidden": "true" },
+              "×"
+            )
+          ),
           this.props.title
         ),
         React.createElement(
           "div",
-          { className: "tip_of_day_text" },
+          { className: "panel-body" },
           this.props.text
         ),
         React.createElement(
           "div",
-          { className: "tip_of_day_controls" },
+          { className: "panel-footer tip-of-day-controls" },
           React.createElement(
             "a",
-            { href: "#", className: "btn btn-link", onClick: this.props.onNext },
+            { href: "#", onClick: this.props.onNext },
             "Next tip » "
           )
         )
@@ -82,13 +82,17 @@ var TipOfDayApp = function (_React$Component2) {
 
       $.getJSON(TIPS_URL_ROOT + "get_current_tip/", function (data) {
         return _this3.setState({ data: data });
+      }).fail(function () {
+        return _this3.setState({ data: null });
       });
     }
   }, {
     key: "markRead",
     value: function markRead(id, callback) {
       // $.getJSON(`${TIPS_URL_ROOT}mark_tip_as_read/${id}`, data => this.setState({data: data}))
-      callback();
+      if (callback) {
+        callback();
+      }
     }
   }, {
     key: "handleNext",
@@ -100,16 +104,18 @@ var TipOfDayApp = function (_React$Component2) {
       });
     }
   }, {
+    key: "handleClose",
+    value: function handleClose(event) {
+      this.markRead(this.state.data.id);
+      this.setState({ data: null });
+    }
+  }, {
     key: "render",
     value: function render() {
       if (this.state.data) {
-        return React.createElement(TipOfDay, { title: this.state.data.title, text: this.state.data.text, onNext: this.handleNext.bind(this) });
+        return React.createElement(TipOfDay, { title: this.state.data.title, text: this.state.data.text, onNext: this.handleNext.bind(this), onClose: this.handleClose.bind(this) });
       } else {
-        return React.createElement(
-          "span",
-          null,
-          "Loading..."
-        );
+        return React.createElement("span", null);
       }
     }
   }]);
