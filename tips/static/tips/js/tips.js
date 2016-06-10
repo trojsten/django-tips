@@ -20,6 +20,7 @@ var TipOfDay = function (_React$Component) {
   _createClass(TipOfDay, [{
     key: "render",
     value: function render() {
+      console.log(this.props);
       return React.createElement(
         "div",
         { className: "panel panel-info" },
@@ -37,18 +38,15 @@ var TipOfDay = function (_React$Component) {
           ),
           this.props.title
         ),
-        React.createElement(
-          "div",
-          { className: "panel-body" },
-          this.props.text
-        ),
+        React.createElement("div", { className: "panel-body", dangerouslySetInnerHTML: { __html: this.props.text } }),
         React.createElement(
           "div",
           { className: "panel-footer tip-of-day-controls" },
           React.createElement(
             "a",
             { href: "#", onClick: this.props.onNext },
-            "Next tip » "
+            TIPS_TEXT_NEXT,
+            " » "
           )
         )
       );
@@ -119,7 +117,7 @@ var TipOfDayApp = function (_React$Component2) {
     key: "render",
     value: function render() {
       if (this.state.data) {
-        return React.createElement(TipOfDay, { title: this.state.data.title, text: this.state.data.text, onNext: this.handleNext.bind(this), onClose: this.handleClose.bind(this) });
+        return React.createElement(TipOfDay, { title: this.state.data.title, text: this.state.data.rendered_text, onNext: this.handleNext.bind(this), onClose: this.handleClose.bind(this) });
       } else {
         return React.createElement("span", null);
       }

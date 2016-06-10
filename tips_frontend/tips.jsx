@@ -1,15 +1,15 @@
 class TipOfDay extends React.Component {
   render() {
+    console.log(this.props);
     return <div className="panel panel-info">
       <div className="panel-heading">
         <button type="button" className="close" aria-label="Close" onClick={this.props.onClose}><span aria-hidden="true">&times;</span></button>
         {this.props.title}
       </div>
-      <div className="panel-body">
-        {this.props.text}
+      <div className="panel-body"  dangerouslySetInnerHTML={{__html: this.props.text}}>
       </div>
       <div className="panel-footer tip-of-day-controls">
-          <a href="#" onClick={this.props.onNext}>Next tip &raquo; </a>
+          <a href="#" onClick={this.props.onNext}>{TIPS_TEXT_NEXT} &raquo; </a>
       </div>
     </div>
   }
@@ -53,7 +53,7 @@ class TipOfDayApp extends React.Component {
 
   render() {
     if (this.state.data) {
-      return <TipOfDay title={this.state.data.title} text={this.state.data.text} onNext={this.handleNext.bind(this)} onClose={this.handleClose.bind(this)}/>
+      return <TipOfDay title={this.state.data.title} text={this.state.data.rendered_text} onNext={this.handleNext.bind(this)} onClose={this.handleClose.bind(this)}/>
     } else {
       return <span/>
     }
