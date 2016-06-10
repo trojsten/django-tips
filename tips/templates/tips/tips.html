@@ -1,0 +1,16 @@
+{% load staticfiles sekizai_tags l10n i18n %}
+<div id="tip_of_day_container">
+</div>
+
+{% addtoblock "css" %}
+<link rel="stylesheet" href="{% static "tips/css/tips.css" %}"></script>
+{% endaddtoblock %}
+
+{% addtoblock "js" %}
+<!-- Global constants -->
+<script type="text/javascript">
+  TIPS_URL_ROOT = "{% url 'tips:tips_root_url' %}";
+  TIPS_TEXT_NEXT = "{% trans 'Next tip' %}";
+</script>
+<script src="{% static "tips/js/tips.js" %}"></script>
+{% endaddtoblock %}
