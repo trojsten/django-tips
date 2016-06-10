@@ -89,10 +89,16 @@ var TipOfDayApp = function (_React$Component2) {
   }, {
     key: "markRead",
     value: function markRead(id, callback) {
-      // $.getJSON(`${TIPS_URL_ROOT}mark_tip_as_read/${id}`, data => this.setState({data: data}))
-      if (callback) {
-        callback();
-      }
+      console.log('mark as read');
+      $.post(TIPS_URL_ROOT + "mark_tip_as_read/" + id, function (data) {
+        if (data && data.status == 'success') {
+          if (callback) {
+            callback();
+          }
+        } else {
+          console.warn('Mark as read failed');
+        }
+      });
     }
   }, {
     key: "handleNext",

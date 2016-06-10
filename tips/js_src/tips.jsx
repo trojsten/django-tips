@@ -30,16 +30,20 @@ class TipOfDayApp extends React.Component {
   }
 
   markRead(id, callback) {
-    // $.getJSON(`${TIPS_URL_ROOT}mark_tip_as_read/${id}`, data => this.setState({data: data}))
-    if (callback) {
-      callback()
-    }
+    console.log('mark as read')
+    $.post(`${TIPS_URL_ROOT}mark_tip_as_read/${id}`, data => {
+      if (data && data.status == 'success') {
+        if (callback) {
+          callback()
+        }
+      } else {
+        console.warn('Mark as read failed');
+      }
+    })
   }
 
   handleNext(event) {
-    this.markRead(this.state.data.id, () =>
-      this.getCurrentTip()
-    );
+    this.markRead(this.state.data.id, () => this.getCurrentTip())
   }
 
   handleClose(event) {
