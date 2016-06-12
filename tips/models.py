@@ -4,8 +4,10 @@ from django.db import models
 from django.utils.html import mark_safe
 from django.utils.translation import ugettext_lazy as _
 from markdown import markdown
+from django.utils.encoding import python_2_unicode_compatible
 
 
+@python_2_unicode_compatible
 class TipOfDay(models.Model):
     title = models.CharField(max_length=100)
     text = models.TextField(
