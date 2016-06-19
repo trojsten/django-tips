@@ -34,6 +34,17 @@ Recommanded packages
 
 * django-sekizai
 
+Building frontend
+-----------------
+
+From tips_frontend directory run::
+
+    npm run_script watch
+
+or::
+
+    npm run_script build
+
 Usage
 -----
 place where you want to show tips::
@@ -54,7 +65,7 @@ include csrf-token ajax setup script if you have csrf protection enabled (you ca
     <script src="{% static "js/csrf_token.js" %}"></script>
 
 Credits
----------
+-------
 
 Tools used in rendering this package:
 

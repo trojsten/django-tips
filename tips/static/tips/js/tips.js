@@ -56,6 +56,28 @@ var TipOfDay = function (_React$Component) {
   return TipOfDay;
 }(React.Component);
 
+function setCookie(cname, cvalue, exdays) {
+  var d = new Date();
+  d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+  var expires = "expires=" + d.toUTCString();
+  document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+
+function getCookie(cname) {
+  var name = cname + "=";
+  var ca = document.cookie.split(';');
+  for (var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
 var TipOfDayApp = function (_React$Component2) {
   _inherits(TipOfDayApp, _React$Component2);
 
@@ -69,7 +91,9 @@ var TipOfDayApp = function (_React$Component2) {
     _this2.state = {
       data: null
     };
-    _this2.getCurrentTip();
+    if (getCookie('tip_of_day') != 'closed') {
+      _this2.getCurrentTip();
+    }
     return _this2;
   }
 
@@ -112,6 +136,7 @@ var TipOfDayApp = function (_React$Component2) {
     value: function handleClose(event) {
       this.markRead(this.state.data.id);
       this.setState({ data: null });
+      setCookie('tip_of_day', 'closed', 1);
     }
   }, {
     key: "render",

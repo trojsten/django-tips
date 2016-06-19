@@ -15,6 +15,28 @@ class TipOfDay extends React.Component {
   }
 }
 
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length,c.length);
+        }
+    }
+    return "";
+}
+
 class TipOfDayApp extends React.Component {
   constructor(props) {
     super(props);
@@ -22,7 +44,9 @@ class TipOfDayApp extends React.Component {
     this.state = {
       data: null
     }
-    this.getCurrentTip()
+    if (getCookie('tip_of_day') != 'closed') {
+      this.getCurrentTip()
+    }
   }
 
   getCurrentTip() {
@@ -49,6 +73,7 @@ class TipOfDayApp extends React.Component {
   handleClose(event) {
     this.markRead(this.state.data.id)
     this.setState({data: null})
+    setCookie('tip_of_day', 'closed', 1)
   }
 
   render() {

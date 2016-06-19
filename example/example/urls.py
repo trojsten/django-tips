@@ -16,13 +16,13 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.views.generic import TemplateView
-
+from django.contrib.auth.views import login
 
 admin.autodiscover()
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^accounts/login/$', 'django.contrib.auth.views.login', {
+    url(r'^accounts/login/$', login, {
         'template_name': 'admin/login.html'
     }),
     url('^accounts/', include('django.contrib.auth.urls')),
