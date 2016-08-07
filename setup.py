@@ -25,7 +25,7 @@ history = open('HISTORY.rst').read().replace('.. :changelog:', '')
 
 setup(
     name='django-tips',
-    version='0.3.0',
+    version='0.4.0',
     description="""Show tip of the day cards on your site.""",
     long_description=readme + '\n\n' + history,
     author='Michal Hozza',
