@@ -1,4 +1,5 @@
-from django.shortcuts import get_object_or_404, Http404
+from django.db.models import Q
+from django.shortcuts import Http404, get_object_or_404
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
@@ -13,8 +14,13 @@ def get_current_tip_of_day(request):
         return Response()
     try:
         available_tips = TipOfDay.objects.filter(
-            active=True
-        ).exclude(seen_by=user.pk).order_by('id')
+            active=True,
+        ).exclude(
+            seen_by=user.pk,
+        ).filter(
+            Q(groups=None) |
+            Q(groups__in=user.groups.all())
+        ).order_by('id')
         serializer = TipOfDaySerializer(available_tips[0])
         return Response(serializer.data)
     except IndexError:
