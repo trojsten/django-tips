@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.conf import settings
 from django.contrib.auth.models import Group
+from django.contrib.sites.models import Site
 from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
 from django.utils.html import mark_safe
@@ -20,6 +21,10 @@ class TipOfDay(models.Model):
     active = models.BooleanField(default=True)
     seen_by = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='seen_tips', blank=True)
     groups = models.ManyToManyField(Group, related_name='tips', blank=True)
+    for_staff = models.BooleanField(default=True, help_text='This tip is intended for staff')
+    for_nonstaff = models.BooleanField(default=False,
+                                       help_text='This tip is intended for non_staff users')
+    sites = models.ManyToManyField(Site, blank=True)
 
     class Meta:
         verbose_name = 'tip'
