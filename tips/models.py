@@ -20,11 +20,16 @@ class TipOfDay(models.Model):
     )
     active = models.BooleanField(default=True)
     seen_by = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='seen_tips', blank=True)
-    groups = models.ManyToManyField(Group, related_name='tips', blank=True)
+    groups = models.ManyToManyField(Group, related_name='tips', blank=True,
+                                    help_text='Only users in these groups will see this tip. '
+                                              'If no group is selected, users in all groups '
+                                              'can see this tip.')
     for_staff = models.BooleanField(default=True, help_text='This tip is intended for staff')
     for_nonstaff = models.BooleanField(default=False,
                                        help_text='This tip is intended for non_staff users')
-    sites = models.ManyToManyField(Site, blank=True)
+    sites = models.ManyToManyField(Site, blank=True,
+                                   help_text='Sites to display this tip in. If none is selected, '
+                                             'tip will be displayed on all Sites.')
 
     class Meta:
         verbose_name = 'tip'
