@@ -53,3 +53,4 @@ npm-debug.log
 # Other
 .venv
 *.sqlite3
+*.tmp
