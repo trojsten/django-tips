@@ -47,13 +47,13 @@ INSTALLED_APPS = [
     'sekizai',
 ]
 
-MIDDLEWARE_CLASSES = [
+MIDDLEWARE = [
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -132,3 +132,5 @@ STATICFILES_FINDERS = (
 )
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
+
+LOGIN_REDIRECT_URL = '/admin'

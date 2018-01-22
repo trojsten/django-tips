@@ -16,12 +16,12 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='tipofday',
             name='for_nonstaff',
-            field=models.BooleanField(default=False, help_text=b'This tip is intended for non_staff users'),
+            field=models.BooleanField(default=False, help_text='This tip is intended for non_staff users'),
         ),
         migrations.AddField(
             model_name='tipofday',
             name='for_staff',
-            field=models.BooleanField(default=True, help_text=b'This tip is intended for staff'),
+            field=models.BooleanField(default=True, help_text='This tip is intended for staff'),
         ),
         migrations.AddField(
             model_name='tipofday',

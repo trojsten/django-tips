@@ -26,6 +26,6 @@ urlpatterns = [
         'template_name': 'admin/login.html'
     }),
     url('^accounts/', include('django.contrib.auth.urls')),
-    url(r'tips/', include('tips.urls', namespace='tips')),
+    url(r'tips/', include('tips.urls')),
     url(r'^$', TemplateView.as_view(template_name="tips/base.html")),
 ]
