@@ -66,6 +66,7 @@ include csrf-token ajax setup script if you have csrf protection enabled (you ca
     
 Development
 -----------
+::
 
     pip install -e .
     pip install -r requirements_dev.txt
