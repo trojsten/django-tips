@@ -54,3 +54,6 @@ npm-debug.log
 .venv
 *.sqlite3
 *.tmp
+
+# Built non-production js files
+

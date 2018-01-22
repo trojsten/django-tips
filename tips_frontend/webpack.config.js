@@ -1,13 +1,13 @@
-const debug = process.env.NODE_ENV !== "production";
+const debug = process.env.NODE_ENV !== 'production';
 const webpack = require('webpack');
 
 module.exports = {
   context: __dirname,
-  devtool: debug ? "inline-sourcemap" : false,
-  entry: "./tips.jsx",
+  devtool: debug ? 'inline-sourcemap' : false,
+  entry: './tips.jsx',
   output: {
     path: __dirname + '/../tips/static/tips/js/',
-    filename: "tips.min.js"
+    filename: debug ? 'tips.js' : 'tips.min.js'
   },
   module: {
     loaders: [
