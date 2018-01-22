@@ -63,6 +63,15 @@ include in your base template on appropriate places::
 include csrf-token ajax setup script if you have csrf protection enabled (you can find the script in the example)::
 
     <script src="{% static "js/csrf_token.js" %}"></script>
+    
+Development
+-----------
+
+    pip install -e .
+    pip install -r requirements_dev.txt
+    cd example
+    ./manage.py migrate
+    ./manage.py runserver
 
 Credits
 -------
