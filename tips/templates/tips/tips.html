@@ -12,6 +12,7 @@
   TIPS_URL_ROOT = "{% url 'tips:tips_root_url' %}";
   TIPS_TEXT_NEXT = "{% trans 'Next tip' %}";
 </script>
+<!-- TODO Fix development -->
 {% if debug %}
   <script src="{% static "tips/js/tips.js" %}"></script>
 {% else %}

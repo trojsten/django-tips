@@ -55,7 +55,7 @@ class TipOfDayApp extends React.Component {
   getCurrentTip() {
     axios
       .get(`${TIPS_URL_ROOT}get_current_tip/`)
-      .then((data) => this.setState({data}))
+      .then(({data}) => this.setState({data}))
       .catch(() => this.setState({data: null}));
   }
 
