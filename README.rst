@@ -25,7 +25,6 @@ Requirements
 ------------
 
 * django > 1.8
-* react
 * djangorestframework
 * markdown
 
@@ -39,26 +38,17 @@ Building frontend
 
 From tips_frontend directory run::
 
-    npm run_script watch
+    npm run watch
 
-or::
+or production build::
 
-    npm run_script build
+    npm run build
 
 Usage
 -----
 place where you want to show tips::
 
     {% include "tips/tips.html" %}
-
-include in your base template on appropriate places::
-
-    {% render_block "css" %}
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.0.1/react.js" type="text/javascript"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.0.1/react-dom.min.js" type="text/javascript"></script>
-
-    {% render_block "js" %}
 
 include csrf-token ajax setup script if you have csrf protection enabled (you can find the script in the example)::
 

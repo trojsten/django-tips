@@ -1,6 +1,9 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import axios from 'axios';
+
 class TipOfDay extends React.Component {
   render() {
-    console.log(this.props);
     return <div className="panel panel-info">
       <div className="panel-heading">
         <button type="button" className="close" aria-label="Close" onClick={this.props.onClose}><span aria-hidden="true">&times;</span></button>
@@ -50,20 +53,17 @@ class TipOfDayApp extends React.Component {
   }
 
   getCurrentTip() {
-    $.getJSON(`${TIPS_URL_ROOT}get_current_tip/`, data => this.setState({data: data})).fail(() => this.setState({data: null}))
+    axios
+      .get(`${TIPS_URL_ROOT}get_current_tip/`)
+      .then((data) => this.setState({data}))
+      .catch(() => this.setState({data: null}));
   }
 
   markRead(id, callback) {
-    console.log('mark as read')
-    $.post(`${TIPS_URL_ROOT}mark_tip_as_read/${id}`, data => {
-      if (data && data.status == 'success') {
-        if (callback) {
-          callback()
-        }
-      } else {
-        console.warn('Mark as read failed');
-      }
-    })
+    axios
+      .post(`${TIPS_URL_ROOT}mark_tip_as_read/${id}`)
+      .then(() => callback())
+      .catch(() => console.warn('Mark as read failed'));
   }
 
   handleNext(event) {
