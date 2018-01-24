@@ -2,15 +2,11 @@
 <div id="tip_of_day_container">
 </div>
 
-{% addtoblock "css" %}
-<link rel="stylesheet" href="{% static "tips/css/tips.css" %}"></script>
-{% endaddtoblock %}
-
 {% addtoblock "js" %}
 <!-- Global constants -->
 <script type="text/javascript">
-  TIPS_URL_ROOT = "{% url 'tips:tips_root_url' %}";
-  TIPS_TEXT_NEXT = "{% trans 'Next tip' %}";
+  const TIPS_URL_ROOT = '{% url 'tips:tips_root_url' %}';
+  const TIPS_TEXT_NEXT = '{% trans 'Next tip' %}';
 </script>
 <!-- TODO Fix development -->
 {% if debug %}

@@ -38,7 +38,7 @@ Building frontend
 
 From tips_frontend directory run::
 
-    npm run watch
+    npm run dev
 
 or production build::
 
@@ -53,7 +53,7 @@ place where you want to show tips::
 include csrf-token ajax setup script if you have csrf protection enabled (you can find the script in the example)::
 
     <script src="{% static "js/csrf_token.js" %}"></script>
-    
+
 Development
 -----------
 ::
@@ -62,6 +62,8 @@ Development
     pip install -r requirements_dev.txt
     cd example
     ./manage.py migrate
+    ./manage.py loaddata fixtures/initial_data.json
+    ./manage.py createsuperuser
     ./manage.py runserver
 
 Credits

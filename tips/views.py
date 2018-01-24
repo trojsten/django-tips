@@ -12,7 +12,7 @@ from .serializers import TipOfDaySerializer
 @api_view(['GET'])
 def get_current_tip_of_day(request):
     user = request.user
-    if user.is_anonymous():
+    if user.is_anonymous:
         return Response()
     try:
         visibility_filter = {'for_staff': True} if user.is_staff else {'for_nonstaff': True}
@@ -38,7 +38,7 @@ def get_current_tip_of_day(request):
 @api_view(['POST'])
 def mark_tip_as_read(request, tip_id):
     user = request.user
-    if user.is_anonymous():
+    if user.is_anonymous:
         raise Http404
     tip = get_object_or_404(TipOfDay, pk=tip_id)
     if user.is_staff and not tip.for_staff or not user.is_staff and not tip.for_nonstaff:
