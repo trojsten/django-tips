@@ -8,11 +8,11 @@
   const TIPS_URL_ROOT = '{% url 'tips:tips_root_url' %}';
   const TIPS_TEXT_NEXT = '{% trans 'Next tip' %}';
 </script>
-<!-- TODO Fix development -->
+
 {% if debug %}
-  <script src="{% static "tips/js/tips.js" %}"></script>
+  <script defer src="{% static "tips/js/tips.js" %}"></script>
 {% else %}
-  <script src="{% static "tips/js/tips.min.js" %}"></script>
+  <script defer src="{% static "tips/js/tips.min.js" %}"></script>
 {% endif %}
 
 {% endaddtoblock %}
