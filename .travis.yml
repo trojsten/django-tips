@@ -11,7 +11,8 @@ install:
   - pip install -r requirements_dev.txt
 
 # command to run tests using coverage, e.g. python setup.py test
-script: coverage run --source tips example/manage.py test
+before_script: cd example
+script: coverage run --source tips manage.py test
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
