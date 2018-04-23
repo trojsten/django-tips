@@ -1,88 +1,109 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import axios from 'axios';
+import cookie from 'cookie';
+
+const csrfcookie = cookie.parse(document.cookie)['csrftoken'];
+
+if (csrfcookie) {
+  axios.defaults.headers.post['X-CSRFToken'] = csrfcookie;
+}
+
 class TipOfDay extends React.Component {
   render() {
-    console.log(this.props);
-    return <div className="panel panel-info">
-      <div className="panel-heading">
-        <button type="button" className="close" aria-label="Close" onClick={this.props.onClose}><span aria-hidden="true">&times;</span></button>
-        {this.props.title}
+    return (
+      <div className="panel panel-info">
+        <div className="panel-heading">
+          <button
+            type="button"
+            className="close"
+            aria-label="Close"
+            onClick={this.props.onClose}
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+          {this.props.title}
+        </div>
+        <div
+          className="panel-body"
+          dangerouslySetInnerHTML={{__html: this.props.text}}
+        />
+        <div
+          className="panel-footer tip-of-day-controls"
+          style={{textAlign: 'right'}}
+        >
+          <a href="#" onClick={this.props.onNext}>
+            {TIPS_TEXT_NEXT} &raquo;
+          </a>
+        </div>
       </div>
-      <div className="panel-body"  dangerouslySetInnerHTML={{__html: this.props.text}}>
-      </div>
-      <div className="panel-footer tip-of-day-controls">
-          <a href="#" onClick={this.props.onNext}>{TIPS_TEXT_NEXT} &raquo; </a>
-      </div>
-    </div>
+    );
   }
 }
 
-function setCookie(cname, cvalue, exdays) {
-    var d = new Date();
-    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    var expires = "expires="+ d.toUTCString();
-    document.cookie = cname + "=" + cvalue + "; " + expires;
+const setCookie = (cookieName, cookieValue, expirationDays) => {
+  const d = new Date();
+  d.setTime(d.getTime() + (expirationDays * 24 * 60 * 60 * 1000));
+  document.cookie = `${cookieName}=${cookieValue}; expires=${d.toUTCString()}`;
 }
 
-function getCookie(cname) {
-    var name = cname + "=";
-    var ca = document.cookie.split(';');
-    for(var i = 0; i <ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0)==' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length,c.length);
-        }
-    }
-    return "";
-}
+const getCookie = (cookieName) => (
+  cookie.parse(document.cookie || '')[cookieName] || ''
+);
 
 class TipOfDayApp extends React.Component {
   constructor(props) {
     super(props);
     // Operations usually carried out in componentWillMount go here
     this.state = {
-      data: null
+      data: null,
+    };
+    if (getCookie('tip_of_day') !== 'closed') {
+      this.getCurrentTip();
     }
-    if (getCookie('tip_of_day') != 'closed') {
-      this.getCurrentTip()
-    }
   }
 
-  getCurrentTip() {
-    $.getJSON(`${TIPS_URL_ROOT}get_current_tip/`, data => this.setState({data: data})).fail(() => this.setState({data: null}))
+  getCurrentTip = () => {
+    return axios
+      .get(`${TIPS_URL_ROOT}get_current_tip/`)
+      .then(({data}) => this.setState({data}))
+      .catch(() => this.setState({data: null}));
   }
 
-  markRead(id, callback) {
-    console.log('mark as read')
-    $.post(`${TIPS_URL_ROOT}mark_tip_as_read/${id}`, data => {
-      if (data && data.status == 'success') {
-        if (callback) {
-          callback()
-        }
-      } else {
-        console.warn('Mark as read failed');
-      }
-    })
+  markRead = (id, callback) => {
+    return axios
+      .post(`${TIPS_URL_ROOT}mark_tip_as_read/${id}`)
+      .catch((error) => console.error('Mark as read failed.\n', error));
   }
 
-  handleNext(event) {
-    this.markRead(this.state.data.id, () => this.getCurrentTip())
-  }
-
-  handleClose(event) {
+  handleNext = (event) => {
     this.markRead(this.state.data.id)
-    this.setState({data: null})
-    setCookie('tip_of_day', 'closed', 1)
+      .then(() => this.getCurrentTip())
+      .catch((error) => console.error('Get new current tip failed.\n', error));
+  }
+
+  handleClose = (event) => {
+    this.markRead(this.state.data.id)
+      .then(() => this.setState({data: null}));
+    setCookie('tip_of_day', 'closed', 1);
   }
 
   render() {
-    if (this.state.data) {
-      return <TipOfDay title={this.state.data.title} text={this.state.data.rendered_text} onNext={this.handleNext.bind(this)} onClose={this.handleClose.bind(this)}/>
-    } else {
-      return <span/>
-    }
+    return (
+      this.state.data
+        ? (
+          <TipOfDay
+            title={this.state.data.title}
+            text={this.state.data.rendered_text}
+            onNext={this.handleNext}
+            onClose={this.handleClose}
+          />
+        ) : <span />
+    );
   }
 }
 
-ReactDOM.render(<TipOfDayApp/>, document.getElementById('tip_of_day_container'))
+ReactDOM.render(
+  <TipOfDayApp />,
+  document.getElementById('tip_of_day_container')
+);

@@ -1,0 +1,364 @@
+[{
+  "model": "tips.tipofday",
+  "pk": 1,
+  "fields": {
+    "title": "January 1",
+    "text": "Where to begin?",
+    "active": true,
+    "for_staff": true,
+    "for_nonstaff": false,
+    "seen_by": [],
+    "groups": [],
+    "sites": []
+  }
+},
+{
+  "model": "tips.tipofday",
+  "pk": 2,
+  "fields": {
+    "title": "January 2",
+    "text": "Article development",
+    "active": true,
+    "for_staff": true,
+    "for_nonstaff": false,
+    "seen_by": [],
+    "groups": [],
+    "sites": []
+  }
+},
+{
+  "model": "tips.tipofday",
+  "pk": 3,
+  "fields": {
+    "title": "January 3",
+    "text": "Are your hands full? (Use search box as a small but convenient clipboard)",
+    "active": true,
+    "for_staff": true,
+    "for_nonstaff": false,
+    "seen_by": [],
+    "groups": [],
+    "sites": []
+  }
+},
+{
+  "model": "tips.tipofday",
+  "pk": 4,
+  "fields": {
+    "title": "January 4",
+    "text": "How to make your watchlist easier to read",
+    "active": true,
+    "for_staff": true,
+    "for_nonstaff": false,
+    "seen_by": [],
+    "groups": [],
+    "sites": []
+  }
+},
+{
+  "model": "tips.tipofday",
+  "pk": 5,
+  "fields": {
+    "title": "January 5",
+    "text": "How to improve Wikipedia's reliability",
+    "active": true,
+    "for_staff": true,
+    "for_nonstaff": false,
+    "seen_by": [],
+    "groups": [],
+    "sites": []
+  }
+},
+{
+  "model": "tips.tipofday",
+  "pk": 6,
+  "fields": {
+    "title": "January 6",
+    "text": "How to send a message to other editors",
+    "active": true,
+    "for_staff": true,
+    "for_nonstaff": false,
+    "seen_by": [],
+    "groups": [],
+    "sites": []
+  }
+},
+{
+  "model": "tips.tipofday",
+  "pk": 7,
+  "fields": {
+    "title": "January 7",
+    "text": "Image processing tools",
+    "active": true,
+    "for_staff": true,
+    "for_nonstaff": false,
+    "seen_by": [],
+    "groups": [],
+    "sites": []
+  }
+},
+{
+  "model": "tips.tipofday",
+  "pk": 8,
+  "fields": {
+    "title": "January 8",
+    "text": "What are dummy edits good for?",
+    "active": true,
+    "for_staff": true,
+    "for_nonstaff": false,
+    "seen_by": [],
+    "groups": [],
+    "sites": []
+  }
+},
+{
+  "model": "tips.tipofday",
+  "pk": 9,
+  "fields": {
+    "title": "January 9",
+    "text": "Digital audio support",
+    "active": true,
+    "for_staff": true,
+    "for_nonstaff": false,
+    "seen_by": [],
+    "groups": [],
+    "sites": []
+  }
+},
+{
+  "model": "tips.tipofday",
+  "pk": 10,
+  "fields": {
+    "title": "January 10",
+    "text": "Introduction to navigating Wikipedia",
+    "active": true,
+    "for_staff": true,
+    "for_nonstaff": false,
+    "seen_by": [],
+    "groups": [],
+    "sites": []
+  }
+},
+{
+  "model": "tips.tipofday",
+  "pk": 11,
+  "fields": {
+    "title": "January 11",
+    "text": "Captions",
+    "active": true,
+    "for_staff": true,
+    "for_nonstaff": false,
+    "seen_by": [],
+    "groups": [],
+    "sites": []
+  }
+},
+{
+  "model": "tips.tipofday",
+  "pk": 12,
+  "fields": {
+    "title": "January 12",
+    "text": "Avoiding common mistakes",
+    "active": true,
+    "for_staff": true,
+    "for_nonstaff": false,
+    "seen_by": [],
+    "groups": [],
+    "sites": []
+  }
+},
+{
+  "model": "tips.tipofday",
+  "pk": 13,
+  "fields": {
+    "title": "January 13",
+    "text": "A self-guided tutorial",
+    "active": true,
+    "for_staff": true,
+    "for_nonstaff": false,
+    "seen_by": [],
+    "groups": [],
+    "sites": []
+  }
+},
+{
+  "model": "tips.tipofday",
+  "pk": 14,
+  "fields": {
+    "title": "January 14",
+    "text": "Article quality assessments",
+    "active": true,
+    "for_staff": true,
+    "for_nonstaff": false,
+    "seen_by": [],
+    "groups": [],
+    "sites": []
+  }
+},
+{
+  "model": "tips.tipofday",
+  "pk": 15,
+  "fields": {
+    "title": "January 15",
+    "text": "Archives for lengthy pages",
+    "active": true,
+    "for_staff": true,
+    "for_nonstaff": false,
+    "seen_by": [],
+    "groups": [],
+    "sites": []
+  }
+},
+{
+  "model": "tips.tipofday",
+  "pk": 16,
+  "fields": {
+    "title": "January 16",
+    "text": "Article banner templates",
+    "active": true,
+    "for_staff": true,
+    "for_nonstaff": false,
+    "seen_by": [],
+    "groups": [],
+    "sites": []
+  }
+},
+{
+  "model": "tips.tipofday",
+  "pk": 17,
+  "fields": {
+    "title": "January 17",
+    "text": "What is a <i>Talk</i> page?",
+    "active": true,
+    "for_staff": true,
+    "for_nonstaff": false,
+    "seen_by": [],
+    "groups": [],
+    "sites": []
+  }
+},
+{
+  "model": "tips.tipofday",
+  "pk": 18,
+  "fields": {
+    "title": "January 18",
+    "text": "How to easily recall a username",
+    "active": true,
+    "for_staff": true,
+    "for_nonstaff": false,
+    "seen_by": [],
+    "groups": [],
+    "sites": []
+  }
+},
+{
+  "model": "tips.tipofday",
+  "pk": 19,
+  "fields": {
+    "title": "January 19",
+    "text": "Preview tomorrow's Featured Article",
+    "active": true,
+    "for_staff": true,
+    "for_nonstaff": false,
+    "seen_by": [],
+    "groups": [],
+    "sites": []
+  }
+},
+{
+  "model": "tips.tipofday",
+  "pk": 20,
+  "fields": {
+    "title": "January 20",
+    "text": "User scripts examples",
+    "active": true,
+    "for_staff": true,
+    "for_nonstaff": false,
+    "seen_by": [],
+    "groups": [],
+    "sites": []
+  }
+},
+{
+  "model": "tips.tipofday",
+  "pk": 21,
+  "fields": {
+    "title": "January 21",
+    "text": "Good article nominations",
+    "active": true,
+    "for_staff": true,
+    "for_nonstaff": false,
+    "seen_by": [],
+    "groups": [],
+    "sites": []
+  }
+},
+{
+  "model": "tips.tipofday",
+  "pk": 22,
+  "fields": {
+    "title": "January 22",
+    "text": "How to reduce or enlarge font sizes",
+    "active": true,
+    "for_staff": true,
+    "for_nonstaff": false,
+    "seen_by": [],
+    "groups": [],
+    "sites": []
+  }
+},
+{
+  "model": "tips.tipofday",
+  "pk": 23,
+  "fields": {
+    "title": "January 23",
+    "text": "Search and replace while editing an article.",
+    "active": true,
+    "for_staff": true,
+    "for_nonstaff": false,
+    "seen_by": [],
+    "groups": [],
+    "sites": []
+  }
+},
+{
+  "model": "tips.tipofday",
+  "pk": 24,
+  "fields": {
+    "title": "January 24",
+    "text": "Search &amp; replace in thousands of articles with <b><a href=\"/wiki/Wikipedia:AWB\" class=\"mw-redirect\" title=\"Wikipedia:AWB\">AWB</b>",
+    "active": true,
+    "for_staff": true,
+    "for_nonstaff": false,
+    "seen_by": [],
+    "groups": [],
+    "sites": []
+  }
+},
+{
+  "model": "tips.tipofday",
+  "pk": 25,
+  "fields": {
+    "title": "January 25",
+    "text": "Ask for help at Wikipedia's Help Desk",
+    "active": true,
+    "for_staff": true,
+    "for_nonstaff": false,
+    "seen_by": [],
+    "groups": [],
+    "sites": []
+  }
+},
+{
+  "model": "tips.tipofday",
+  "pk": 26,
+  "fields": {
+    "title": "January 26",
+    "text": "Souping up your Smartphone editing of Wikipedia",
+    "active": true,
+    "for_staff": true,
+    "for_nonstaff": false,
+    "seen_by": [],
+    "groups": [],
+    "sites": []
+  }
+}]

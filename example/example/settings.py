@@ -24,6 +24,11 @@ SECRET_KEY = '%b&p!s^@301dc=@y^*x92ff*hzelqm0)m0vy29-dwexs=e1w+t'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+INTERNAL_IPS = [
+    '0.0.0.0',
+    '127.0.0.1'
+]
+
 ALLOWED_HOSTS = []
 
 SITE_ID = 1
@@ -55,7 +60,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware'
 ]
 
 ROOT_URLCONF = 'example.urls'
@@ -134,3 +139,5 @@ STATICFILES_FINDERS = (
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
 
 LOGIN_REDIRECT_URL = '/admin'
+
+LOGOUT_REDIRECT_URL = '/'
