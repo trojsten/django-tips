@@ -1,6 +1,6 @@
 {
   "name": "tips_frontend",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Frontend for django-tips",
   "main": "tips.jsx",
   "dependencies": {
