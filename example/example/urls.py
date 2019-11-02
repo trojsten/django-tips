@@ -17,22 +17,24 @@ from django.conf.urls import url, include
 from django.conf import settings
 from django.contrib import admin
 from django.views.generic import TemplateView
-from django.contrib.auth.views import login
+from django.contrib.auth import views as auth_views
 
 admin.autodiscover()
 
-app_name = 'example'
+app_name = "example"
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^accounts/login/$', login, {
-        'template_name': 'admin/login.html'
-    }),
-    url('^accounts/', include('django.contrib.auth.urls')),
-    url(r'tips/', include('tips.urls')),
-    url(r'^$', TemplateView.as_view(template_name="tips/base.html")),
+    url(r"^admin/", admin.site.urls),
+    url(
+        r"^accounts/login/$",
+        auth_views.LoginView.as_view(template_name="admin/login.html"),
+    ),
+    url("^accounts/", include("django.contrib.auth.urls")),
+    url(r"tips/", include("tips.urls")),
+    url(r"^$", TemplateView.as_view(template_name="tips/base.html")),
 ]
 
 if settings.DEBUG:
     import debug_toolbar
-    urlpatterns.append(url(r'^__debug__/', include(debug_toolbar.urls)))
+
+    urlpatterns.append(url(r"^__debug__/", include(debug_toolbar.urls)))
