@@ -58,8 +58,8 @@ Development
 -----------
 ::
 
-    pip install -e .
-    pip install -r requirements_dev.txt
+    pip install poetry
+    poetry install
     cd example
     ./manage.py migrate
     ./manage.py loaddata fixtures/initial_data.json
