@@ -7,6 +7,19 @@ license = "BSD-3-Clause"
 packages = [
     { include = "tips" },
 ]
+readme = "README.rst"
+repository = "https://github.com/trojsten/django-tips"
+classifiers = [
+        'Development Status :: 3 - Alpha',
+        'Framework :: Django',
+        'Framework :: Django :: 2.0',
+        'Intended Audience :: Developers',
+        'License :: OSI Approved :: BSD License',
+        'Natural Language :: English',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
+]
 
 [tool.poetry.dependencies]
 python = "^3.5"
