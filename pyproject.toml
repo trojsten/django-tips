@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "django-tips"
-version = "0.7.1"
+version = "0.8.0"
 description = "Show tip of the day cards on your site."
 authors = ["Michal Hozza <mhozza@gmail.com>"]
 license = "BSD-3-Clause"
