@@ -24,7 +24,7 @@ Then use it in a project::
 Requirements
 ------------
 
-* django > 1.8
+* django
 * djangorestframework
 * markdown
 
