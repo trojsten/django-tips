@@ -24,7 +24,7 @@ classifiers = [
 [tool.poetry.dependencies]
 python = "^3.5"
 django = "^2.0"
-markdown = ">=3.1"
+markdown = ">=2.6"
 djangorestframework = ">=3.10"
 
 [tool.poetry.dev-dependencies]
