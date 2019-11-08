@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "django-tips"
+version = "0.7.1"
+description = "Show tip of the day cards on your site."
+authors = ["Michal Hozza <mhozza@gmail.com>"]
+license = "BSD-3-Clause"
+packages = [
+    { include = "tips" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.5"
+django = "^2.0"
+markdown = "^3.1"
+djangorestframework = "^3.10"
+
+[tool.poetry.dev-dependencies]
+bumpversion = "^0.5.3"
+wheel = "^0.33.6"
+django-debug-toolbar = "^2.0"
+coverage = "^4.5"
+django-sekizai = "^1.0"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
